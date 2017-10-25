@@ -51,7 +51,7 @@ public class TurnplateView extends View implements OnTouchListener {
     /**
      * 圆心坐标
      */
-    private int mPointX = 0, mPointY = 0;
+    public int mPointX = 0, mPointY = 0;
     /**
      * 圆半径
      */
@@ -81,10 +81,6 @@ public class TurnplateView extends View implements OnTouchListener {
      */
     public int backgroudCircleRadius;
     /**
-     * 小图标的高
-     */
-    private int smallSize;
-    /**
      * 大图标的高
      */
     private int bigSize;
@@ -100,6 +96,10 @@ public class TurnplateView extends View implements OnTouchListener {
      * 圆圈的颜色
      */
     private int circleColor = R.color.light_yellow;
+    /**
+     * 控件距离上边缘的距离
+     */
+    private int marginTop = 40;
 
     public TurnplateView(Context context) {
         super(context);
@@ -121,18 +121,16 @@ public class TurnplateView extends View implements OnTouchListener {
         setBackgroundColor(Color.WHITE);
     }
 
-    public void initTurnPlateView(Bitmap[] icons, Bitmap[] bigIcons, int ponit_num, int smallSize, int bigSize, int px,
-                                  int py, int radius, int divideAngle, int radiusOffset, int arrowOffset) {
+    public void initTurnPlateView(Bitmap[] icons, Bitmap[] bigIcons, int ponit_num, int px,
+                                  int radius, int divideAngle, int radiusOffset, int arrowOffset) {
         this.arrowOffset = arrowOffset;
         this.ponit_num = ponit_num;
         this.icons = icons;
         this.bigIcons = bigIcons;
-        this.smallSize = smallSize;
-        this.bigSize = bigSize;
         this.mPointX = px;
-        this.mPointY = py;
+        this.mPointY = px + radiusOffset + bigIcons[0].getHeight() + marginTop + arrowOffset;
         this.backgroudCircleRadius = radius + radiusOffset;
-        this.mRadius = backgroudCircleRadius + arrowOffset + bigSize / 2;
+        this.mRadius = backgroudCircleRadius + arrowOffset + bigIcons[0].getHeight() / 2;
         this.mDegreeDelta = divideAngle;
         this.radiusOffset = radiusOffset;
         initPoints();
@@ -294,8 +292,6 @@ public class TurnplateView extends View implements OnTouchListener {
      */
     private void switchScreen(MotionEvent event) {
         computeCurrentDistance(event.getX(), event.getY());
-        // Log.e(TAG,chooseBtn+"");
-        System.out.println("-----------------SportDetailInfoHistory:3");
         onTurnplateListener.onPointTouch(chooseBtn);
 
     }
@@ -308,7 +304,6 @@ public class TurnplateView extends View implements OnTouchListener {
     public void setChooseBn(int chooseIndex) {
         chooseBtn = chooseIndex;
         resetChoiceIndex();
-        System.out.println("-----------------SportDetailInfoHistory:2");
         onTurnplateListener.onPointTouch(chooseBtn);
     }
 
@@ -350,7 +345,6 @@ public class TurnplateView extends View implements OnTouchListener {
 
                 // 滑动执行
                 onTurnplateListener.onPointTouch(chooseBtn);
-                System.out.println("-----------------SportDetailInfoHistory:1");
                 tempDegree = 0;
                 int diff = 270 - points[chooseBtn].angle;
                 if (!resetPointAngleDiff(diff)) {
@@ -462,13 +456,11 @@ public class TurnplateView extends View implements OnTouchListener {
 
     /**
      * 设置箭头颜色和圈圈颜色
-     *
-     * @param arrawBitmap
-     * @param circleColor
      */
     public void setTheme(Bitmap arraw, int circleColor) {
         this.arrowBitmap = arraw;
         this.circleColor = circleColor;
         invalidate();
     }
+
 }

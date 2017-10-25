@@ -2,72 +2,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <com.examplehost.xg.mycircleviewprojdemo.view.TurnPlateViewScrowView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white" >
+            android:background="@color/white">
 
             <LinearLayout
                 android:id="@+id/sport_detail_page_turnplateview_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <com.examplehost.xg.mycircleviewprojdemo.view.TurnplateView
                     android:id="@+id/sport_detail_page_turn_plate_view"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-                </com.examplehost.xg.mycircleviewprojdemo.view.TurnplateView>
+                    android:layout_height="match_parent"></com.examplehost.xg.mycircleviewprojdemo.view.TurnplateView>
             </LinearLayout>
 
-            <RelativeLayout
+            <!-- 中间内容部分 -->
+
+            <LinearLayout
+                android:id="@+id/sport_detail_page_frag_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/transparent">
 
-                <LinearLayout
-                    android:id="@+id/sport_detail_page_left_arrow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/sport_detail_page_right_arrow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-                <!-- 中间内容部分 -->
-
-                <LinearLayout
-                    android:id="@+id/sport_detail_page_frag_layout"
+                <FrameLayout
+                    android:id="@+id/sport_detail_fragment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_centerHorizontal="true"
-                    android:background="@color/transparent" >
-
-                    <FrameLayout
-                        android:id="@+id/sport_detail_fragment"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/transparent"
-                        android:orientation="vertical" >
-                    </FrameLayout>
-                </LinearLayout>
-            </RelativeLayout>
+                    android:background="@color/colorAccent"
+                    android:orientation="vertical"></FrameLayout>
+            </LinearLayout>
         </FrameLayout>
     </com.examplehost.xg.mycircleviewprojdemo.view.TurnPlateViewScrowView>
 
