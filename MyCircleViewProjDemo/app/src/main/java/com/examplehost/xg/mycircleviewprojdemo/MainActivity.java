@@ -68,7 +68,6 @@ public class MainActivity extends FragmentActivity implements TurnplateView.OnTu
         // 内容显示区域的宽高为圆形视图半径的7/10
         lpfrag.width = (int) (turnplateView.backgroudCircleRadius * 2 / Math.sqrt(2));
         lpfrag.height = lpfrag.width;
-//        turnplateView.backgroudCircleRadius * 2 * 7 / 10;
         lpfrag.setMargins(0, turnplateView.mPointY - lpfrag.width / 2, 0, 0);
         // turnplateView的布局必须设置高度，否则无法滚动
         turnplateViewLayout = (LinearLayout) findViewById(R.id.sport_detail_page_turnplateview_layout);
