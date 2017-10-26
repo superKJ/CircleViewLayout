@@ -1,4 +1,4 @@
-package com.examplehost.xg.mycircleviewprojdemo.util;
+package com.webapp.xg.circleviewlib.util;
 
 import android.app.Activity;
 import android.content.Context;

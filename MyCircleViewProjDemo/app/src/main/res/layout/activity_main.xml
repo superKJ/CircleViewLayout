@@ -4,9 +4,9 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <com.examplehost.xg.mycircleviewprojdemo.view.TurnPlateViewScrowView
+    <com.webapp.xg.circleviewlib.view.TurnPlateViewScrowView
         android:id="@+id/activity_main_page_turnplatescrowwview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

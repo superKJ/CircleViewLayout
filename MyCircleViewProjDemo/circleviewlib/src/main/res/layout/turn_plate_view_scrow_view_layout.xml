@@ -9,10 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.examplehost.xg.mycircleviewprojdemo.view.TurnplateView
+        <com.webapp.xg.circleviewlib.view.TurnplateView
             android:id="@+id/sport_detail_page_turn_plate_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></com.examplehost.xg.mycircleviewprojdemo.view.TurnplateView>
+            android:layout_height="match_parent" />
     </LinearLayout>
 
     <!-- 中间内容部分 -->
@@ -28,7 +28,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorAccent"
-            android:orientation="vertical">
-        </FrameLayout>
+            android:orientation="vertical"></FrameLayout>
     </LinearLayout>
 </FrameLayout>

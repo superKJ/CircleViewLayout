@@ -1,4 +1,4 @@
-package com.examplehost.xg.mycircleviewprojdemo.view;
+package com.webapp.xg.circleviewlib.view;
 
 /**
  * Created by XG on 2017/10/25.
@@ -17,8 +17,9 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
-import com.examplehost.xg.mycircleviewprojdemo.R;
-import com.examplehost.xg.mycircleviewprojdemo.util.Util;
+import com.webapp.xg.circleviewlib.R;
+import com.webapp.xg.circleviewlib.util.Util;
+
 
 public class TurnPlateViewScrowView extends ScrollView implements TurnplateView.OnTurnplateListener {
     /**

@@ -1,4 +1,4 @@
-package com.examplehost.xg.mycircleviewprojdemo.view;
+package com.webapp.xg.circleviewlib.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,7 +10,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 
-import com.examplehost.xg.mycircleviewprojdemo.R;
+import com.webapp.xg.circleviewlib.R;
+
 
 /**
  * Created by XG on 2017/10/25.

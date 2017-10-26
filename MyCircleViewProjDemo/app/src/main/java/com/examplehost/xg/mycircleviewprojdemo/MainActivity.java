@@ -5,8 +5,9 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Window;
 
-import com.examplehost.xg.mycircleviewprojdemo.util.Util;
-import com.examplehost.xg.mycircleviewprojdemo.view.TurnPlateViewScrowView;
+import com.webapp.xg.circleviewlib.util.Util;
+import com.webapp.xg.circleviewlib.view.TurnPlateViewScrowView;
+
 
 public class MainActivity extends FragmentActivity {
     private int ponit_num = 11;

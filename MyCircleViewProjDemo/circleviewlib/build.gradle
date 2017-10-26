@@ -1,12 +1,11 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 26
     buildToolsVersion "25.0.3"
 
     defaultConfig {
-        applicationId "com.webapp.xg.circleviewlib"
-        minSdkVersion 20
+        minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
