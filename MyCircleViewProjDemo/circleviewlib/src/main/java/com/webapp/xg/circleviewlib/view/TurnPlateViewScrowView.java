@@ -12,7 +12,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -27,8 +26,6 @@ public class TurnPlateViewScrowView extends ScrollView implements TurnplateView.
      */
     private Context context;
     private int ponit_num = 11;
-    private Bitmap[] smallIcons;
-    private Bitmap[] bigIcons;
     private int offset = 50;
     private int angleDivide = 20;
     /**
@@ -38,7 +35,7 @@ public class TurnPlateViewScrowView extends ScrollView implements TurnplateView.
     /**
      * 圆形布局
      */
-    private TurnplateView turnplateView;
+    public TurnplateView turnplateView;
     /**
      * 中间显示内容区域的布局
      */
@@ -51,6 +48,10 @@ public class TurnPlateViewScrowView extends ScrollView implements TurnplateView.
      * 内容布局
      */
     private View contenView;
+    /**
+     * 圆盘位置改变回调
+     */
+    private PositionListener positionListener;
 
     public TurnPlateViewScrowView(Context context) {
         super(context);
@@ -81,27 +82,16 @@ public class TurnPlateViewScrowView extends ScrollView implements TurnplateView.
 
     @Override
     public void onPointTouch(int flag) {
-        if (flag > 6) {
-            turnplateView.setTheme(
-                    Util.Drawable2Bitmap(context, R.mipmap.sport_detail_page_arrow_icon_blue),
-                    R.color.circle_blue);
-            // 设置蓝色主题
-        } else {
-            turnplateView.setTheme(
-                    Util.Drawable2Bitmap(context, R.mipmap.sport_detail_page_arrow_icon),
-                    R.color.light_yellow);
-        }
+        positionListener.positionListenerMethod(flag);
     }
 
-    public void initTurnPlateViewScrowView(Bitmap[] smallIcons, Bitmap[] bigIcons) {
+    public void initTurnPlateViewScrowView(Bitmap[] smallIcons, Bitmap[] bigIcons, PositionListener positionListener) {
         if (turnplateView == null) {
             return;
         }
+        this.positionListener = positionListener;
         turnplateView.initTurnPlateView(smallIcons, bigIcons, ponit_num, Util.getDeviceWith((Activity) context) / 2,
                 Util.getDeviceWith((Activity) context) / 2, angleDivide, offset, arrowOffSet);
-        // 设置主题橙色还是蓝色
-        turnplateView.setTheme(Util.Drawable2Bitmap((Activity) context, R.mipmap.sport_detail_page_arrow_icon),
-                R.color.light_yellow);
         //根据图片大小重新设置布局大小
         FrameLayout.LayoutParams lpfrag = (FrameLayout.LayoutParams) detailInfoLayout.getLayoutParams();
         // 内容显示区域的宽高为圆形视图半径的7/10
@@ -120,5 +110,13 @@ public class TurnPlateViewScrowView extends ScrollView implements TurnplateView.
         if (turnplateView != null) {
             turnplateView.setChooseBn(position);
         }
+    }
+
+    public int getFragmentLayoutId() {
+        return R.id.sport_detail_fragment;
+    }
+
+    public interface PositionListener {
+        public void positionListenerMethod(int position);
     }
 }

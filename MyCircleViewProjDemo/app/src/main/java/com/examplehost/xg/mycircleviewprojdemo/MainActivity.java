@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Window;
 
+import com.examplehost.xg.mycircleviewprojdemo.fragment.ContentFragment;
 import com.webapp.xg.circleviewlib.util.Util;
 import com.webapp.xg.circleviewlib.view.TurnPlateViewScrowView;
 
@@ -34,8 +35,27 @@ public class MainActivity extends FragmentActivity {
 
     private void initView() {
         turnPlateViewScrowView = (TurnPlateViewScrowView) findViewById(R.id.activity_main_page_turnplatescrowwview);
-        turnPlateViewScrowView.initTurnPlateViewScrowView(smallIcons, bigIcons);
+        turnPlateViewScrowView.initTurnPlateViewScrowView(smallIcons, bigIcons, new TurnPlateViewScrowView.PositionListener() {
+            @Override
+            public void positionListenerMethod(int position) {
+                if (position > 6) {
+                    // 设置蓝色主题
+                    turnPlateViewScrowView.turnplateView.setTheme(
+                            Util.Drawable2Bitmap(MainActivity.this, R.mipmap.sport_detail_page_arrow_icon_blue),
+                            com.webapp.xg.circleviewlib.R.color.circle_blue);
+
+                } else {
+                    // 设置黄色主题
+                    turnPlateViewScrowView.turnplateView.setTheme(
+                            Util.Drawable2Bitmap(MainActivity.this, R.mipmap.sport_detail_page_arrow_icon),
+                            com.webapp.xg.circleviewlib.R.color.light_yellow);
+                }
+            }
+        });
         turnPlateViewScrowView.setChoosenPosition(2);
+        getSupportFragmentManager().beginTransaction()
+                .replace(turnPlateViewScrowView.getFragmentLayoutId(), new ContentFragment())
+                .commit();
     }
 
     /**
