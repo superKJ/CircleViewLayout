@@ -5,42 +5,8 @@
     android:orientation="vertical">
 
     <com.examplehost.xg.mycircleviewprojdemo.view.TurnPlateViewScrowView
+        android:id="@+id/activity_main_page_turnplatescrowwview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white">
-
-            <LinearLayout
-                android:id="@+id/sport_detail_page_turnplateview_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.examplehost.xg.mycircleviewprojdemo.view.TurnplateView
-                    android:id="@+id/sport_detail_page_turn_plate_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"></com.examplehost.xg.mycircleviewprojdemo.view.TurnplateView>
-            </LinearLayout>
-
-            <!-- 中间内容部分 -->
-
-            <LinearLayout
-                android:id="@+id/sport_detail_page_frag_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/transparent">
-
-                <FrameLayout
-                    android:id="@+id/sport_detail_fragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorAccent"
-                    android:orientation="vertical"></FrameLayout>
-            </LinearLayout>
-        </FrameLayout>
-    </com.examplehost.xg.mycircleviewprojdemo.view.TurnPlateViewScrowView>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
